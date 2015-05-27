@@ -22,14 +22,14 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#303F9F"/>
+            android:background="#142F1F"/>
 
-        <View
-            android:id="@+id/drawer"
-            android:layout_width="240dp"
+        <fragment android:id="@+id/navigation_drawer"
+            android:layout_width="280dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="#3F51B5" />
+            android:name="project.pb.petbuddy.fragment.DrawerFragment" />
+
 
 
     </android.support.v4.widget.DrawerLayout>

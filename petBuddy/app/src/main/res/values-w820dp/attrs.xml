@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SlidingToggleSwitch">
+        <attr name="selectedTextColor" format="color"/>
+        <attr name="unselectedTextColor" format="color"/>
+        <attr name="leftButtonText" format="string" />
+        <attr name="rightButtonText" format="string" />
+        <attr name="sliderBackground" format="integer" />
+        <attr name="toggleBackground" format="integer" />
+        <attr name="togglechecked" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="Theme">
+        <attr name="circularImageViewStyle" format="reference"></attr>
+    </declare-styleable>
+</resources>
