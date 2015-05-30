@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null">
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:paddingBottom="5dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Pending Request"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="true"/>
+    <ImageView
+        android:id="@+id/imageViewIndicator"
+        android:layout_toEndOf="@id/textViewTitle"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:paddingBottom="4dp"
+        android:layout_width="8dp"
+        android:layout_height="12dp"
+        android:gravity="center"/>
+        <!--android:src="@drawable/shape_oval_red"-->
+
+</RelativeLayout>

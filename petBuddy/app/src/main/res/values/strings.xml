@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">petBuddy</string>
     <string name="hello_world">Hello world!</string>
+    <string name="signup">회원 가입</string>
+    <string name="signupFacebook">Face Book으로 가입</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="petBuddy">petBuddy</string>
