@@ -1,5 +1,6 @@
 package project.pb.petbuddy.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import project.pb.petbuddy.R;
+import project.pb.petbuddy.activities.LogInActivity;
 import project.pb.petbuddy.adapter.ListViewAdapter;
 import project.pb.petbuddy.views.SlidingTabLayout;
 
@@ -25,13 +28,24 @@ public abstract class OriginEachTabFragment extends Fragment {
 
     private ArrayAdapter<String> arrayAdapter;
     abstract void setInitialViewComponents();
+    private boolean isLogin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
          listPetSitter = (ListView) rootView.findViewById(R.id.listPetSitter);
-
+         listPetSitter.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("meme", " onItemClicked !!");
+//                if(isLogin =! true) {
+                    Intent goLogin = new Intent(getActivity(), LogInActivity.class);
+                    getActivity().startActivity(goLogin);
+                    getActivity().finish();
+//                }
+            }
+        });
         return rootView;
     }
 

@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
+import com.facebook.FacebookSdk;
+
 import project.pb.petbuddy.R;
 
 public class LoadingActivity extends Activity {
@@ -19,6 +21,8 @@ public class LoadingActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_loading);
+
+
 
         Handler handler = new Handler() {
 

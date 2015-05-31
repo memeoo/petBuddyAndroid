@@ -25,19 +25,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/signup"
-                android:id="@+id/btnFaceBookSignUp"
-                android:onClick="onClickFaceBookSignUp"
+                android:id="@+id/btnSignUp"
+                android:onClick="onClickSignUp"
                 android:layout_marginBottom="5dp"/>
 
 
-            <Button
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/signupFacebook"
-                android:id="@+id/btnSignUp"
-                android:onClick="onClickSignUp"
+                android:layout_gravity="center_horizontal"
+                android:text="Face Book으로 가입"
                 android:background="#4169e1"
-                android:layout_marginBottom="32dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp" />
 
             <LinearLayout android:id="@+id/plus_sign_out_buttons"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
