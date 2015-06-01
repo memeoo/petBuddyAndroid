@@ -11,7 +11,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">446587998851878</string>
-
-
+    <string name="parse_app_id">Kmhd9RSk9HfSqhGwrsfoxAHnXWK5iH1h3j3Eryds</string>
+    <string name="parse_client_key">v5nd6RNGyQnr2T4RO1TOXH6YiOac0M4DZewtYHN4</string>
 
 </resources>

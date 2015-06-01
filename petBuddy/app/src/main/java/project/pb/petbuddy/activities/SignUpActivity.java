@@ -80,13 +80,16 @@ public class SignUpActivity extends Activity {
             public void done(ParseException e) {
                 if(e == null){
                     Log.d("meme", " Sign up Succeed !!");
-                    Intent backIntent = new Intent();
-                    backIntent.putExtra("id", id);
-                    backIntent.putExtra("pass", pass);
-                    setResult(1,backIntent);
-
+//                    Intent goMain = new Intent(getBaseContext(), MainActivity.class);
+                    Intent goMain = new Intent();
+                    goMain.putExtra("id", id);
+                    goMain.putExtra("pass", pass);
+//                    startActivity(goMain);
+                    setResult(1, goMain);
+                    finish();
+                    Toast.makeText(getBaseContext(),"가입해 주셔서 감사합니다 !" , Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getBaseContext(),"죄송합니다. 회원 가입시 오류가 발생했습니다. 다시 가입해 주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(),"죄송합니다. 회원 가입시 오류가 발생했습니다. 다시 가입해 주세요." + e.toString() , Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import project.pb.petbuddy.R;
 import project.pb.petbuddy.activities.LogInActivity;
 import project.pb.petbuddy.adapter.ListViewAdapter;
+import project.pb.petbuddy.base.PetBuddyApplication;
 import project.pb.petbuddy.views.SlidingTabLayout;
 
 /**
@@ -28,7 +30,9 @@ public abstract class OriginEachTabFragment extends Fragment {
 
     private ArrayAdapter<String> arrayAdapter;
     abstract void setInitialViewComponents();
-    private boolean isLogin;
+
+
+    private final int REQUEST_CODE_LOGIN = 999;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,14 +43,24 @@ public abstract class OriginEachTabFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("meme", " onItemClicked !!");
-//                if(isLogin =! true) {
+                if(PetBuddyApplication.getPreferencesBoolean("loginOK") == false) {
                     Intent goLogin = new Intent(getActivity(), LogInActivity.class);
-                    getActivity().startActivity(goLogin);
-                    getActivity().finish();
-//                }
+                    startActivityForResult(goLogin, REQUEST_CODE_LOGIN);
+                }else{
+
+                }
             }
         });
         return rootView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE_LOGIN){
+//            Toast.makeText(getActivity(), "환영합니다 " +data.getStringExtra("id") +" 님~", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static OriginEachTabFragment getInstance(final int tabId) {

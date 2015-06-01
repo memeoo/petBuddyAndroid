@@ -1,6 +1,7 @@
 package project.pb.petbuddy.activities;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,8 +24,10 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 import project.pb.petbuddy.R;
+import project.pb.petbuddy.base.PetBuddyApplication;
 
 public class LogInActivity extends Activity {
 
@@ -54,6 +57,24 @@ public class LogInActivity extends Activity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d("meme", " FaceBook Login Success !!");
+                String userId = loginResult.getAccessToken().getUserId();
+                Log.d("meme", " UserID = " + userId);
+
+
+                ParseUser user = new ParseUser();
+                user.setUsername(userId);
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null){
+
+                            PetBuddyApplication.savePreferences("loginOK", true);
+                            Intent goMain = new Intent(getBaseContext(), MainActivity.class);
+                            startActivity(goMain);
+                            finish();
+                        }
+                    }
+                });
             }
 
             @Override
@@ -101,6 +122,12 @@ public class LogInActivity extends Activity {
             public void done(ParseUser parseUser, ParseException e) {
                 if(e == null){
                     Log.d("meme", " Login Succeed !!");
+                    PetBuddyApplication.savePreferences("loginOK", true);
+                    Intent goBackMain = new Intent();
+                    goBackMain.putExtra("id", parseUser.getUsername());
+                    setResult(1, goBackMain);
+                    finish();
+                    Toast.makeText(getBaseContext(),"로그인 성공 !!" , Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getBaseContext(), "ID 또는 Password를 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                 }
